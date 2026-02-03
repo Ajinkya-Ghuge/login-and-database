@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            font-size: 14px;
+        }
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<h1>ADMIN DASHBOARD</h1>
+
+<h2>👤 Users</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Password (HASHED)</th>
+        <th>Created At</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.created_at }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>📊 Activity Logs</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>User ID</th>
+        <th>Action</th>
+        <th>IP Address</th>
+        <th>Time</th>
+    </tr>
+    {% for log in logs %}
+    <tr>
+        <td>{{ log.id }}</td>
+        <td>{{ log.user_id }}</td>
+        <td>{{ log.action }}</td>
+        <td>{{ log.ip_address }}</td>
+        <td>{{ log.created_at }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
